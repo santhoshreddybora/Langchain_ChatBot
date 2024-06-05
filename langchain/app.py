@@ -9,6 +9,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.retrieval import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFDirectoryLoader
+import time
 
 from dotenv import load_dotenv
 
@@ -70,10 +71,6 @@ prompt1=st.text_input("Enter Your Question From Doduments")
 if st.button("Documents Embedding"):
     vector_embedding()
     st.write("Vector Store DB Is Ready")
-
-import time
-
-
 
 if prompt1:
     document_chain=create_stuff_documents_chain(llm,prompt)
